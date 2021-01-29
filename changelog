@@ -1,0 +1,78 @@
+EFSC Plugin v0
++ ABBA Caving.
++ Mineable Spawners.
+
+EFSC Plugin v0.1
++ Tag.
+
+EFSC Plugin v0.2
++ Added '/Tag Vote' to start a vote to change who is 'it.'
+
+EFSC Plugin v0.2.2
++ Ability to opt in or out of playing Tag '/Tag [Enable/Disable].'
++ 10 seconds of tag invulnerability when you tag someone else.
+* Fixed thorns enchantment immediately tagging back.
+
+EFSC Plugin v0.3
++ Chat Colors (Use '&' in front of a format code).
+* Fixed hitting a player who isn't playing while not being 'it' displaying a message.
+* Fixed 'vote_cancelled' showing for players who aren't playing.
+
+EFSC Plugin v0.3.1
+* Added something as per Arb's request.
+
+EFSC Plugin v0.4
++ Player Heads (Charged creepers killing players will drop player heads).
+* Fixed text/grammatical errors.
+
+EFSC Plugin v0.5
++ Hats (Use '/Hat' while holding an item to put it on your head).
+
+EFSC Plugin v0.6.1
++ Chairs (Right click on slabs/stairs to sit on them).
++ Wandering Trader now has 10% chance of offering a trade to 'clean' player heads (Turn a player's head into a blank player head).
++ '/Head <value>' command to change a player head into a custom player head (replace 'value' with the ID of the head).
+* Fixed ABBA Caving bug where players aren't cleared from party after game ends.
+* Cleaned up code
+
+EFSC Plugin v0.7
++ Name Tether (Name mobs from a distance by shooting an arrow with a name tag in your offhand).
++ Armor Stand Arms.
+* Changed Chairs (Can no longer sit on upside down stairs/slabs).
+
+EFSC Plugin v0.7.1
+* Can no longer sit on chairs that have a block above them.
+* Can no longer sit on double slabs.
+* Fixed x-ray glitch involving chairs.
+
+EFSC Plugin v0.7.2
++ April Fools! (This was originally said to be 'another x-ray glitch fix' to fool Arb).
+
+EFSC Plugin v0.8
++ Player Stacking! (Only enabled on command by admins)
++ More Silverfish! Mining an infested block with fortune on your pickaxe will spawn some more friends :)
++ Trident Retrieval! Throwing a trident at an item will attach the item to the trident. Used to retrieve items using loyalty tridents
++ Place plugin! Once a boundary is set, players may only place one block every 5 minutes.
++ Boss bar timer to ABBA Caving game
++ Ability to add color formatting to signs, books, and items! (Renaming items requires dye to be taken from your inventory. Books will only show color after being signed)
++ Ability to tag people with snowballs
++ Ability to opt out of sitting. Use '/Chairs [Enable/Disable]'
+* Made every module for the EFSC plugin toggleable.
+* Made it easier to configure the plugin. Almost everything in the config has an ingame-command to change it.
+* Now able to sit on stairs that have a transparent block above them
+* Made it easier to notice when you get tagged
+* Major code changes. Rewrote a lot of things. Plz report any errors to me.
+- Removed April Fools :3
+
+EFSC Plugin v0.8.1
+* Made it so only the author of the book can unsign a book.
+* Fixed tag voting not working.
+- Removed unused UUID tracking in Tag.
+
+EFSC Plugin v0.8.2 (1.16.1 Update)
+* Updated to 1.16.1
+* Fixed Wandering Villager trade duplication bug.
+
+EFSC Plugin v0.9 (1.16.2 Update)
++ Boop :)
+* Changed default tag name to 'P3NG00' because why not B^)

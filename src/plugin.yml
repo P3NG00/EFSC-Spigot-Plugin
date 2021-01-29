@@ -1,0 +1,64 @@
+main: "com.p3ng00.efsc.EFSC"
+name: "EFSC"
+version: "0.9.0"
+author: "P3NG00"
+description: "Official Plugin of the EFSC™"
+api-version: "1.16"
+prefix: "EFSC"
+load: "POSTWORLD"
+
+commands:
+  efsc:
+    description: "Lists active EFSC Plugin modules"
+    usage: "/EFSC"
+  abba:
+    description: "ABBA Caving Commands"
+    usage: "/ABBA [Join/Leave/List/Kick/Start/Mins]"
+  boop:
+    description: "Boop someone!"
+    usage: "/Boop <Player>"
+  chairs:
+    description: "Used to opt in or out of the Chairs plugin"
+    usage: "/Chairs [Enable/Disable]"
+  curse:
+    description: "Used to set curse"
+    usage: "/Curse"
+  hat:
+    description: "Places the item in your hand on your head"
+    usage: "/Hat"
+  head:
+    description: "Changes skin of held blank player head"
+    usage: "/Head <Value>"
+  nametether:
+    description: "Used to configure the Name Tether plugin"
+    usage: "/NameTether"
+  place:
+    description: "Used to configure the r/Place plugin"
+    usage: "/Place [SetBound/Enable/Disable]"
+  snowballfight:
+    description: "Snowball Fight Commands"
+    usage: "/SnowballFight [Join|Leave|List|Kick|Start|Mins]"
+  spawners:
+    description: "Used to configure the Mineable Spawners plugin"
+    usage: "/Spawners"
+  stacking:
+    description: "Enables or Disables player stacking"
+    usage: "/Stacking"
+  stopcurse:
+    description: "Stops current curse"
+    usage: "/StopCurse"
+  tag:
+    description: "Shows who is currently tagged"
+    usage: "/Tag [Vote/Disable/Enable]"
+  textcolors:
+    description: "Used to configure the Text Colors plugin"
+    usage: "/TextColors"
+  tridentretrieval:
+    description: "Used to configure the Trident Retrieval plugin"
+    usage: "/TridentRetrieval"
+  unsign:
+    description: "Used to unsign signed books"
+    usage: "/Unsign"
+  ultimatetag:
+    description: "Ultimate Tag Commands"
+    usage: "/UltimateTag [Join|Leave|List|Kick|Start|Mins]"

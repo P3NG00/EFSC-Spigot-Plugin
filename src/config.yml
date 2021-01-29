@@ -1,0 +1,67 @@
+efsc:
+  enable:
+    abba_caving: true
+    armor_stand_arms: true
+    blessings_and_curses: true
+    boop: true
+    chairs: true
+    fortune_silverfish: true
+    hats: true
+    mineable_spawners: true
+    name_tether: true
+    place: true
+    player_heads: true
+    player_stacking: false
+    snowball_fight: true
+    tag: true
+    text_colors: true
+    trident_retrieval: true
+    ultimate_tag: true
+abba_caving:
+  game_length: 10
+blessings_and_curses:
+  overworld_name: "world"
+chairs:
+  opt_out: []
+hats:
+  allow_riding: true
+mineable_spawners:
+  mob_name_color: "AQUA"
+  drop_chance: 0.5
+name_tether:
+  allow_any_item: false
+  allow:
+    bow: true
+    crossbow: true
+    trident: true
+place:
+  active: false
+  bounds:
+    world: "null"
+    y: 0
+    bound1:
+      x: 0
+      z: 0
+    bound2:
+      x: 0
+      z: 0
+player_heads:
+  trade_use_min: 7
+  trade_use_vary: 6
+  trade_price_min: 32
+  trade_price_vary: 23
+  trade_chance: 0.4
+tag:
+  vote_requirement: 4
+  opt_out: []
+  no_tag_backs: true
+  it: "P3NG00"
+text_colors:
+  anvil: true
+  book: true
+  chat: true
+  sign: true
+trident_retrieval:
+  distance: 1.5
+ultimate_tag:
+  game_length: 10
