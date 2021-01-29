@@ -11,9 +11,12 @@ public class GameItem {
     public Material[] materials;
 
     public GameItem(Sound.Info soundInfo, int multiplier, boolean broadcast, Material... materials) {
+
         this.soundInfo = soundInfo;
         this.multiplier = multiplier;
         this.broadcast = broadcast;
         this.materials = materials;
+
     }
+
 }

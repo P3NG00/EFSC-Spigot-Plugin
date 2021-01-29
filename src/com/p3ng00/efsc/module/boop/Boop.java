@@ -10,4 +10,5 @@ public class Boop extends Module {
     public Boop() {
         super("Boop", null, new BoopCommand());
     }
+
 }

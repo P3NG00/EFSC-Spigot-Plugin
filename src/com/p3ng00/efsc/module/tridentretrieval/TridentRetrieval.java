@@ -16,8 +16,10 @@ public class TridentRetrieval extends Module {
 
     @Override
     public boolean enable() {
+
         distance = CONFIG.getDouble(createPath("distance"));
         return super.enable();
+
     }
 
     @Override

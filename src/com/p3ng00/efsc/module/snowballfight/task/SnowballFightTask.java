@@ -8,4 +8,5 @@ public class SnowballFightTask extends BukkitRunnable {
     public void run() {
 
     }
+
 }

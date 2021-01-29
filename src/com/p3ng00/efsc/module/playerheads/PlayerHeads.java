@@ -21,6 +21,7 @@ public class PlayerHeads extends Module {
 
     @Override
     public boolean enable() {
+
         tradeSettings = new int[4];
         tradeSettings[0] = CONFIG.getInt(createPath("trade_use_min"));
         tradeSettings[1] = CONFIG.getInt(createPath("trade_use_vary"));
@@ -28,15 +29,19 @@ public class PlayerHeads extends Module {
         tradeSettings[3] = CONFIG.getInt(createPath("trade_price_vary"));
         tradeChance = CONFIG.getDouble(createPath("trade_chance"));
         return super.enable();
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set(createPath("trade_use_min"), tradeSettings[0]);
         CONFIG.set(createPath("trade_use_vary"), tradeSettings[1]);
         CONFIG.set(createPath("trade_price_min"), tradeSettings[2]);
         CONFIG.set(createPath("trade_price_vary"), tradeSettings[3]);
         CONFIG.set(createPath("trade_chance"), tradeChance);
+
     }
+
 }

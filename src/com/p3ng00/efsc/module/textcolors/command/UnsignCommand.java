@@ -18,23 +18,29 @@ public class UnsignCommand extends P3Command {
 
     @Override
     public String onCommand(CommandSender sender, String[] args) {
-        if (!EFSC.TEXT_COLORS.isEnabled()) {
+
+        if (!EFSC.TEXT_COLORS.isEnabled())
             return Module.DISABLED;
-        } else if (!(sender instanceof Player)) {
+        else if (!(sender instanceof Player))
             return EFSC.ERROR_SENDER;
-        } else if (((Player)sender).getInventory().getItemInMainHand().getType() == Material.WRITTEN_BOOK) {
+        else if (((Player)sender).getInventory().getItemInMainHand().getType() == Material.WRITTEN_BOOK) {
+
             ItemStack book = ((Player)sender).getInventory().getItemInMainHand();
             BookMeta meta = (BookMeta)book.getItemMeta();
-            if (meta == null) {
+
+            if (meta == null)
                 return ChatColor.RED + "Error: no meta";
-            } else if (((Player)sender).getDisplayName().equals(meta.getAuthor())) {
+            else if (((Player)sender).getDisplayName().equals(meta.getAuthor())) {
+
                 ((Player)sender).getInventory().getItemInMainHand().setType(Material.WRITABLE_BOOK);
                 return ChatColor.GREEN + "Unsigned";
-            } else {
+
+            } else
                 return ChatColor.RED + "Must be the author of the book";
-            }
-        } else {
+
+        } else
             return ChatColor.RED + "Must be holding a written book!";
-        }
+
     }
+
 }

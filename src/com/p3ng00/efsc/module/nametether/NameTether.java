@@ -19,19 +19,23 @@ public class NameTether extends Module {
 
     @Override
     public boolean enable() {
+
         ALLOW_ANY_ITEM = CONFIG.isBoolean(createPath("allow_any_item")) && CONFIG.getBoolean(createPath("allow_any_item"));
         ALLOW_BOWS = CONFIG.isBoolean(createPath("allow.bow")) && CONFIG.getBoolean(createPath("allow.bow"));
         ALLOW_CROSSBOWS = CONFIG.isBoolean(createPath("allow.crossbow")) && CONFIG.getBoolean(createPath("allow.crossbow"));
         ALLOW_TRIDENTS = CONFIG.isBoolean(createPath("allow.trident")) && CONFIG.getBoolean(createPath("allow.trident"));
         return super.enable();
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set(createPath("allow_any_item"), ALLOW_ANY_ITEM);
         CONFIG.set(createPath("allow.bow"), ALLOW_BOWS);
         CONFIG.set(createPath("allow.crossbow"), ALLOW_CROSSBOWS);
         CONFIG.set(createPath("allow.trident"), ALLOW_TRIDENTS);
+
     }
 }

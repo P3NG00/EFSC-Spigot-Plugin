@@ -21,21 +21,25 @@ public class TextColors extends Module {
 
     @Override
     public boolean enable() {
+
         checks = new boolean[4];
         checks[0] = CONFIG.getBoolean(createPath("anvil"));
         checks[1] = CONFIG.getBoolean(createPath("book"));
         checks[2] = CONFIG.getBoolean(createPath("chat"));
         checks[3] = CONFIG.getBoolean(createPath("sign"));
         return super.enable();
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set(createPath("anvil"), checks[0]);
         CONFIG.set(createPath("book"), checks[1]);
         CONFIG.set(createPath("chat"), checks[2]);
         CONFIG.set(createPath("sign"), checks[3]);
+
     }
 
     public void setAnvil(boolean enable) {
@@ -69,4 +73,5 @@ public class TextColors extends Module {
     public boolean getSign() {
         return checks[3];
     }
+
 }

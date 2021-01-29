@@ -119,4 +119,5 @@ public final class EFSC extends P3Plugin {
     public static void printToConsole(Object msg) {
         P3Plugin.printToConsole(String.format("[EFSC] %s", msg));
     }
+
 }

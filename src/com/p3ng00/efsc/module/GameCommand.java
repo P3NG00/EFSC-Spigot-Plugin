@@ -20,73 +20,106 @@ public abstract class GameCommand extends P3Command {
     }
 
     public final String onCommand(CommandSender sender, String[] args, GameModule game) {
-        if (!game.isEnabled()) {
+
+        if (!game.isEnabled())
             return Module.DISABLED;
-        } else if (!(sender instanceof Player)) {
+        else if (!(sender instanceof Player))
             return ERROR_SENDER;
-        } else {
+        else {
+
             switch (args.length) {
+
                 case 1:
+
                     switch (args[0].toLowerCase()) {
+
                         case "join":
                             return game.partyJoin(sender);
+
                         case "leave":
                             return game.partyLeave(sender);
+
                         case "list":
                             return game.getPartyList();
+
                         case "start":
+
                             if (game.PARTY.contains(sender)) {
-                                if (game.isGameActive()) {
+
+                                if (game.isGameActive())
                                     return ERROR_ACTIVE;
-                                } else if (game.PARTY.size() < 2) {
+                                else if (game.PARTY.size() < 2)
                                     return ERROR_NOT_ENOUGH_PLAYERS;
-                                } else {
+                                else {
+
                                     startGame();
                                     Chat.broadcastMessageToList(game.PARTY, ChatColor.AQUA + "Starting game!");
                                     return null;
+
                                 }
-                            } else {
+
+                            } else
                                 return ERROR_NOT_JOINED;
-                            }
+
                         case "mins":
                             return game.showMinutes();
+
                     }
+
                 case 2:
+
                     switch (args[0].toLowerCase()) {
+
                         case "kick":
                             return game.partyKick(Bukkit.getPlayer(args[1]));
+
                         case "mins":
+
                             if (game.PARTY.contains(sender)) {
+
                                 try {
                                     return game.setMinutes((Player) sender, Integer.parseInt(args[1]));
                                 } catch (NumberFormatException e) {
                                     return ERROR_NUMBER;
                                 }
-                            } else {
+
+                            } else
                                 return ERROR_NOT_JOINED;
-                            }
+
                     }
+
             }
+
             return ChatColor.RED + "/" + PREFIX + " [Join/Leave/List/Kick/Start/Mins]";
+
         }
+
     }
 
     public final List<String> onTabComplete(String[] args, GameModule game) {
+
         List<String> list = new ArrayList<>();
+
         if (args.length == 1) {
+
             list.add("join");
             list.add("leave");
             list.add("list");
             list.add("kick");
             list.add("start");
             list.add("mins");
+
         } else if (args.length == 2 && args[0].equalsIgnoreCase("kick")) {
-            for (Player p : game.PARTY) {
+
+            for (Player p : game.PARTY)
                 list.add(p.getName());
-            }
+
         }
+
         return list;
+
     }
 
     protected abstract void startGame();
+
 }

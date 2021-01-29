@@ -13,11 +13,16 @@ public class HatsListener implements Listener {
 
     @EventHandler
     public void onRightClickPlayer(PlayerInteractEntityEvent event) {
+
         if (HATS.isEnabled() && HATS.RIDING && event.getRightClicked() instanceof Player) {
+
             ItemStack helmet = ((Player)event.getRightClicked()).getInventory().getHelmet();
-            if (helmet != null && helmet.getType() == Material.SADDLE) {
+
+            if (helmet != null && helmet.getType() == Material.SADDLE)
                 event.getRightClicked().addPassenger(event.getPlayer());
-            }
+
         }
+
     }
+
 }

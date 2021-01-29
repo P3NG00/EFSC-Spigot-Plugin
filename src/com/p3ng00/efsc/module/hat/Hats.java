@@ -22,25 +22,39 @@ public class Hats extends Module {
 
     @Override
     public boolean enable() {
+
         RIDING = CONFIG.getBoolean(createPath("allow_riding"));
+
         new BukkitRunnable() {
+
             @Override
             public void run() {
+
                 if (isEnabled()) {
+
                     for (Player p : Bukkit.getOnlinePlayers()) {
-                        if (p.getPassengers().size() != 0) {
+
+                        if (p.getPassengers().size() != 0)
                             p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 30, p.getPassengers().size() - 1));
-                        }
+
                     }
+
                 }
+
             }
+
         }.runTaskTimer(EFSC.INSTANCE, 20, 20);
+
         return super.enable();
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set(createPath("allow_riding"), RIDING);
+
     }
+
 }

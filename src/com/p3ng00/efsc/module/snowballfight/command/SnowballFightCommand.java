@@ -29,4 +29,5 @@ public class SnowballFightCommand extends GameCommand {
     protected void startGame() {
         SNOWBALL_FIGHT.TASK_GAME = new SnowballFightTask().runTaskTimer(EFSC.INSTANCE, 5, 1);
     }
+
 }

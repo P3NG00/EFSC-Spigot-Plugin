@@ -18,13 +18,18 @@ public class Chairs extends Module {
 
     @Override
     public boolean enable() {
+
         OPT_OUT = CONFIG.getStringList("chairs.opt_out");
         return super.enable();
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set("chairs.opt_out", OPT_OUT);
+
     }
+
 }

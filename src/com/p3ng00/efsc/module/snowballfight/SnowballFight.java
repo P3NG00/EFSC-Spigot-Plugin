@@ -15,13 +15,18 @@ public class SnowballFight extends GameModule {
 
     @Override
     public boolean enable() {
+
         gamemode = GameMode.valueOf(CONFIG.getString(createPath("gamemode"))); // todo test
         return super.enable();
+
     }
 
     private enum GameMode {
+
         INFECTION,
         TEAM_DEATH_MATCH,
         HIDE_N_SEEK
+
     }
+
 }

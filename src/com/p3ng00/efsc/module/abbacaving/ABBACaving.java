@@ -49,47 +49,71 @@ public class ABBACaving extends GameModule {
 
     @Override
     public boolean enable() {
+
         ScoreboardManager manager = Bukkit.getScoreboardManager();
+
         if (manager != null) {
+
             org.bukkit.scoreboard.Scoreboard scoreboard = manager.getMainScoreboard();
             Objective objective = scoreboard.getObjective("abbacaving");
-            if (objective != null) {
+
+            if (objective != null)
                 objective.unregister();
-            }
+
         }
+
         return super.enable();
+
     }
 
     public int calculateScore(Player player) {
+
         int score = 0;
+
         for (ItemStack itemStack : player.getInventory().getContents()) {
+
             if (itemStack != null) {
-                if (isCaveSpiderSpawner(itemStack)) {
+
+                if (isCaveSpiderSpawner(itemStack))
                     score += itemStack.getAmount() * 15;
-                } else {
+                else {
+
                     for (GameItem gi : ITEM_LIST) {
+
                         for (Material m : gi.materials) {
-                            if (itemStack.getType() == m) {
+
+                            if (itemStack.getType() == m)
                                 score += itemStack.getAmount() * gi.multiplier;
-                            }
+
                         }
+
                     }
+
                 }
+
             }
+
         }
+
         return score;
+
     }
 
     public Player getWinner() {
+
         Player player = EFSC.ABBA_CAVING.PARTY.get(0);
         int[] p = new int[2];
+
         for (Player pl : EFSC.ABBA_CAVING.PARTY) {
+
             p[0] = calculateScore(player);
             p[1] = calculateScore(pl);
-            if (p[1] > p[0]) {
+
+            if (p[1] > p[0])
                 player = pl;
-            }
+
         }
+
         return player;
     }
 
@@ -100,4 +124,5 @@ public class ABBACaving extends GameModule {
     public boolean isCaveSpiderSpawner(ItemStack itemStack) {
         return itemStack.getType() == SPAWNER && itemStack.getItemMeta() != null && ChatColor.stripColor(itemStack.getItemMeta().getDisplayName().toLowerCase()).equals("[cave spider spawner]");
     }
+
 }

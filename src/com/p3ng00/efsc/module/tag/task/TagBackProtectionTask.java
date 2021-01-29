@@ -8,23 +8,31 @@ import static com.p3ng00.efsc.EFSC.TAG;
 
 public class TagBackProtectionTask extends BukkitRunnable {
 
-    private Player protect;
+    private final Player protect;
     private boolean ran;
 
     public TagBackProtectionTask(Player player) {
+
         protect = player;
         ran = false;
+
     }
 
     @Override
     public void run() {
-        if (!ran) {
+
+        if (!ran)
             TAG.PROTECTED.add(protect);
-        } else {
+        else {
+
             TAG.PROTECTED.remove(protect);
             cancel();
             TAG.PROTECTION_TASKS.removeIf(BukkitTask::isCancelled);
+
         }
+
         ran = true;
+
     }
+
 }

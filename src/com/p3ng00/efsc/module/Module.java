@@ -15,13 +15,16 @@ public abstract class Module {
     private boolean enabled;
 
     public Module(String title, Listener listener, P3Command... commands) {
+
         TITLE = title;
-        if (listener != null) {
+
+        if (listener != null)
             registerListener(listener);
-        }
+
         registerCommands(commands);
         setEnabled(CONFIG.getBoolean("efsc.enable." + getPathName()) && enable());
         printToConsole(isEnabled() ? ChatColor.GREEN + "Enabled" : ChatColor.RED + "Disabled");
+
     }
 
     public boolean enable() {
@@ -29,13 +32,17 @@ public abstract class Module {
     }
 
     public void disable() { // All subclasses that inherit Module must use super.disable() if overriding this method
+
         CONFIG.set("efsc.enable." + TITLE.toLowerCase().replace(" ", "_"), isEnabled());
+
         if (isEnabled()) {
+
             setEnabled(false);
             printToConsole(ChatColor.RED + "Disabled");
-        } else {
+
+        } else
             printToConsole(ChatColor.YELLOW + "Already disabled");
-        }
+
     }
 
     public final String getPathName() {
@@ -47,9 +54,10 @@ public abstract class Module {
     }
 
     public final void printToConsole(Object... msg) {
-        for (Object obj : msg) {
+
+        for (Object obj : msg)
             EFSC.printToConsole(String.format("[%s] %s", TITLE, obj.toString()));
-        }
+
     }
 
     public final void setEnabled(boolean enabled) {
@@ -59,4 +67,5 @@ public abstract class Module {
     public final boolean isEnabled() {
         return enabled;
     }
+
 }

@@ -25,8 +25,10 @@ public class ScoreboardTask extends BukkitRunnable {
     private final boolean showPoints;
 
     public ScoreboardTask(boolean showPoints) {
+
         shown = false;
         this.showPoints = showPoints;
+
     }
 
     @Override
@@ -47,7 +49,8 @@ public class ScoreboardTask extends BukkitRunnable {
             scoreboard = manager.getMainScoreboard();
             objective = scoreboard.getObjective("abbacaving");
 
-            if (objective != null) objective.unregister();
+            if (objective != null)
+                objective.unregister();
 
             objective = scoreboard.registerNewObjective("abbacaving", "dummy", "AbbaCaving");
             objective.setDisplaySlot(DisplaySlot.SIDEBAR);

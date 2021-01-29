@@ -34,9 +34,11 @@ public class BoopCommand extends P3Command {
                 booped.sendMessage(ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.AQUA + " has booped you!");
                 return ChatColor.AQUA + "You booped " + ChatColor.LIGHT_PURPLE + booped.getName() + ChatColor.AQUA + "!";
 
-            } else return ChatColor.RED + "Player not found";
+            } else
+                return ChatColor.RED + "Player not found";
 
-        } else return ChatColor.RED + "/Boop <player>";
+        } else
+            return ChatColor.RED + "/Boop <player>";
 
     }
 

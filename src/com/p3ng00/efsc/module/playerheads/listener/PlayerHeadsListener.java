@@ -27,30 +27,44 @@ public class PlayerHeadsListener implements Listener {
 
     @EventHandler
     public void onPlayerDieFromChargedCreeper(EntityDamageByEntityEvent event) {
+
         if (PLAYER_HEADS.isEnabled() && event.getDamager().getType() == EntityType.CREEPER && event.getEntity().getType() == EntityType.PLAYER) {
+
             Player player = (Player)event.getEntity();
+
             if (player.getHealth() - event.getFinalDamage() <= 0 && ((Creeper)event.getDamager()).isPowered()) {
+
                 ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD);
                 SkullMeta playerHeadMeta = (SkullMeta)playerHead.getItemMeta();
-                if (playerHeadMeta != null) {
+
+                if (playerHeadMeta != null)
                     playerHeadMeta.setOwningPlayer(player);
-                }
+
                 playerHead.setItemMeta(playerHeadMeta);
+
                 new BukkitRunnable() {
+
                     @Override
                     public void run() {
-                        if (player.getLocation().getWorld() != null) {
+
+                        if (player.getLocation().getWorld() != null)
                             player.getLocation().getWorld().dropItemNaturally(player.getLocation(), playerHead);
-                        }
+
                     }
+
                 }.runTaskLater(EFSC.INSTANCE, 1);
+
             }
+
         }
+
     }
 
     @EventHandler
     public void onWanderingTraderSpawn(CreatureSpawnEvent event) {
+
         if (PLAYER_HEADS.isEnabled() && event.getSpawnReason() != CreatureSpawnEvent.SpawnReason.DEFAULT && event.getEntity().getType() == EntityType.WANDERING_TRADER && Math.random() < PLAYER_HEADS.tradeChance) {
+
             WanderingTrader trader = (WanderingTrader) event.getEntity();
             Random random = new Random();
             MerchantRecipe headRecipe = new MerchantRecipe(new ItemStack(Material.PLAYER_HEAD), random.nextInt(PLAYER_HEADS.tradeSettings[1] + 1) + PLAYER_HEADS.tradeSettings[0]);
@@ -59,6 +73,9 @@ public class PlayerHeadsListener implements Listener {
             List<MerchantRecipe> recipes = new ArrayList<>(trader.getRecipes());
             recipes.set(random.nextInt(recipes.size()), headRecipe);
             trader.setRecipes(recipes);
+
         }
+
     }
+
 }

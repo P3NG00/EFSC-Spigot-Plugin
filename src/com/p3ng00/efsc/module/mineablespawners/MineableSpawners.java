@@ -23,36 +23,46 @@ public class MineableSpawners extends Module {
 
     @Override
     public boolean enable() {
+
         String string = CONFIG.getString(createPath("mob_name_color"));
-        if (string == null) {
+
+        if (string == null)
             printToConsole("'mineable_spawners.mob_name_color' does not exist. Using default color: 'AQUA'");
-        } else {
+        else {
+
             try {
                 MOB_NAME_COLOR = ChatColor.valueOf(string.toUpperCase());
             } catch (IllegalArgumentException e) {
                 printToConsole("Invalid mob color name in 'mineable_spawners.mob_name_color. Using default color: 'AQUA'");
             }
+
         }
-        if (MOB_NAME_COLOR == null) {
+
+        if (MOB_NAME_COLOR == null)
             MOB_NAME_COLOR = ChatColor.AQUA;
-        }
+
         DROP_CHANCE = CONFIG.getDouble(createPath("drop_chance"));
-        if (DROP_CHANCE < 0) {
+
+        if (DROP_CHANCE < 0)
             DROP_CHANCE = 0;
-        } else if (DROP_CHANCE > 1) {
+        else if (DROP_CHANCE > 1)
             DROP_CHANCE = 1;
-        }
+
         return super.enable();
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set(createPath("mob_name_color"), MOB_NAME_COLOR.name());
         CONFIG.set(createPath("drop_chance"), DROP_CHANCE);
+
     }
 
     public static String getCapitalizedMobName(EntityType et) {
         return et.name().substring(0, 1).toUpperCase() + et.name().substring(1).toLowerCase().replace("_", " ");
     }
+
 }

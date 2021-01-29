@@ -12,11 +12,18 @@ public class FortuneSilverfishListener implements Listener {
 
     @EventHandler
     public void onBreakInfestedBlock(BlockBreakEvent event) {
+
         if (EFSC.FORTUNE_SILVERFISH.isEnabled() && event.getBlock().getType().name().contains("INFESTED") && event.getPlayer().getInventory().getItemInMainHand().getEnchantments().containsKey(Enchantment.LOOT_BONUS_BLOCKS)) {
+
             for (int i = 0; i < event.getPlayer().getInventory().getItemInMainHand().getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS); i++) {
+
                 Silverfish fish = (Silverfish)event.getBlock().getWorld().spawnEntity(event.getBlock().getLocation().clone().add(0.5, 0.01, 0.5), EntityType.SILVERFISH);
                 fish.setTarget(event.getPlayer());
+
             }
+
         }
+
     }
+
 }

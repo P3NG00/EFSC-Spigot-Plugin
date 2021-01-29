@@ -9,13 +9,20 @@ public final class Util {
     }
 
     public static boolean getEnabledOrDisabled(String enable) throws IllegalArgumentException {
+
         switch (enable.toLowerCase()) {
+
             case "enable":
                 return true;
+
             case "disable":
                 return false;
+
             default:
                 throw new IllegalArgumentException("String must be 'Enable' or 'Disable'");
+
         }
+
     }
+
 }

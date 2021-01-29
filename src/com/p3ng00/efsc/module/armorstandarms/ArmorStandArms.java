@@ -8,4 +8,5 @@ public class ArmorStandArms extends Module {
     public ArmorStandArms() {
         super("Armor Stand Arms", new ArmorStandArmsListener());
     }
+
 }

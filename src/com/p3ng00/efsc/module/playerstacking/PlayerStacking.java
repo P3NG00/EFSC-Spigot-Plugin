@@ -18,15 +18,20 @@ public class PlayerStacking extends Module {
 
     @Override
     public boolean enable() {
+
         checks[0] = CONFIG.getBoolean(createPath("player_launch"));
         checks[1] = CONFIG.getBoolean(createPath("multi_stack"));
         return super.enable();
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set(createPath("player_launch"), checks[0]);
         CONFIG.set(createPath("multi_stack"), checks[1]);
+
     }
+
 }

@@ -8,4 +8,5 @@ public class FortuneSilverfish extends Module {
     public FortuneSilverfish() {
         super("Fortune Silverfish", new FortuneSilverfishListener());
     }
+
 }

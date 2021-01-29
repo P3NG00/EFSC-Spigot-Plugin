@@ -14,14 +14,24 @@ public class TridentRetrievalListener implements Listener {
 
     @EventHandler
     public void onProjectileLand(ProjectileHitEvent event) {
+
         if (TRIDENT_RETRIEVAL.isEnabled() && event.getEntity() instanceof Trident && event.getEntity().getShooter() instanceof Player) {
+
             Trident trident = (Trident)event.getEntity();
+
             for (Entity e : trident.getNearbyEntities(TRIDENT_RETRIEVAL.distance, TRIDENT_RETRIEVAL.distance, TRIDENT_RETRIEVAL.distance)) {
+
                 if (e instanceof Item) {
+
                     trident.addPassenger(e);
                     break;
+
                 }
+
             }
+
         }
+
     }
+
 }

@@ -33,39 +33,56 @@ public class Place extends Module {
 
     @Override
     public boolean enable() {
+
         worldName = CONFIG.getString(createPath("bounds.world"));
         bounds = new Location[2];
-        if (worldName == null) {
+
+        if (worldName == null)
             printToConsole();
-        }
+
         World world = Bukkit.getWorld(worldName);
+
         if (world == null) {
+
             yLevel = 0;
             Arrays.fill(bounds, null);
+
         } else {
+
             yLevel = getBound("y");
             bounds[0] = new Location(world, getBound("bound1.x"), yLevel, getBound("bound1.z"));
             bounds[1] = new Location(world, getBound("bound2.x"), yLevel, getBound("bound2.z"));
             active = CONFIG.getBoolean("place.active");
+
         }
+
         placeUUIDs = new ArrayList<>();
         return super.enable();
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set(createPath("active"), active);
         CONFIG.set(createPath("bounds.world"), worldName);
         CONFIG.set(createPath("bounds.y"), yLevel);
+
         if (bounds[0] != null) {
+
             CONFIG.set(createPath("bounds.bound1.x"), bounds[0].getBlockX());
             CONFIG.set(createPath("bounds.bound1.z"), bounds[0].getBlockZ());
+
         }
+
         if (bounds[1] != null) {
+
             CONFIG.set(createPath("bounds.bound2.x"), bounds[1].getBlockX());
             CONFIG.set(createPath("bounds.bound2.z"), bounds[1].getBlockZ());
+
         }
+
     }
 
     private int getBound(String loc) {

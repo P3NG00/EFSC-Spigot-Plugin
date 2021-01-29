@@ -17,13 +17,21 @@ public class VoteTask extends BukkitRunnable {
 
     @Override
     public void run() {
+
         if (timer <= 0) {
+
             TAG.broadcastToOptedInPlayers(ChatColor.YELLOW + "Not enough players voted");
             TAG.voteEnd();
+
         } else if (TAG.VOTERS.size() >= TAG.VOTE_REQUIREMENT) {
+
             TAG.setIt(TAG.VOTERS.get(new Random().nextInt(TAG.VOTERS.size())));
             TAG.voteEnd();
+
         }
+
         timer--;
+
     }
+
 }

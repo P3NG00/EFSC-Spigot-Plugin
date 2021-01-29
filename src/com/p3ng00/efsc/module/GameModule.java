@@ -45,15 +45,19 @@ public abstract class GameModule extends Module {
     public int MIN_PARTY_SIZE;
 
     public GameModule(String title, int minPartySize, Listener listener, P3Command... commands) {
+
         super(title, listener, commands);
         GAME_LENGTH = CONFIG.getInt(createPath("game_length"));
         MIN_PARTY_SIZE = minPartySize;
+
     }
 
     @Override
     public void disable() {
+
         super.disable();
         CONFIG.set(createPath("game_length"), GAME_LENGTH);
+
     }
 
     public boolean isGameActive() {
@@ -61,69 +65,90 @@ public abstract class GameModule extends Module {
     }
 
     public String partyJoin(CommandSender sender) {
+
         if (sender instanceof Player) {
+
             Player player = (Player)sender;
-            if (isGameActive()) {
+
+            if (isGameActive())
                 return ERROR_ACTIVE;
-            } else if (PARTY.contains(player)) {
+            else if (PARTY.contains(player))
                 return ERROR_JOINED;
-            } else {
+            else {
+
                 PARTY.add(player);
                 broadcastMessageToList(PARTY, String.format(PARTY_JOIN, player.getName()));
                 return null;
+
             }
-        } else {
+
+        } else
             return EFSC.ERROR_SENDER;
-        }
+
     }
 
     public String partyLeave(CommandSender sender) {
+
         if (sender instanceof Player) {
+
             Player player = (Player)sender;
+
             if (PARTY.contains(player)) {
+
                 broadcastMessageToList(PARTY, String.format(PARTY_LEAVE, player.getName()));
                 PARTY.remove(player);
                 return null;
-            } else {
+
+            } else
                 return ERROR_NOT_JOINED;
-            }
-        } else {
+
+        } else
             return EFSC.ERROR_SENDER;
-        }
+
     }
 
     public String partyKick(Player kick) {
+
         if (PARTY.contains(kick)) {
+
             broadcastMessageToList(PARTY, String.format(PARTY_KICK, kick.getName()));
             PARTY.remove(kick);
             return null;
-        } else {
+
+        } else
             return ERROR_NOT_JOINED;
-        }
+
     }
 
     public String getPartyList() {
-        if (PARTY.size() == 0) {
+
+        if (PARTY.size() == 0)
             return ERROR_EMPTY;
-        }
+
         List<String> names = new ArrayList<>();
-        for (Player p : PARTY) {
+
+        for (Player p : PARTY)
             names.add(p.getName());
-        }
+
         return Text.colorFormat(Text.createList(PARTY.size() >= MIN_PARTY_SIZE ? ChatColor.GREEN.toString() : ChatColor.YELLOW.toString(), "&r, ", names));
+
     }
 
     public String setMinutes(Player player, int minutes) {
+
         if (!isGameActive()) {
+
             GAME_LENGTH = minutes;
             broadcastMessageToList(PARTY, String.format(SETTING_LENGTH_SET, player.getName(), GAME_LENGTH));
             return null;
-        } else {
+
+        } else
             return ERROR_ACTIVE;
-        }
+
     }
 
     public String showMinutes() {
         return String.format(SETTING_LENGTH_DISPLAY, GAME_LENGTH);
     }
+
 }

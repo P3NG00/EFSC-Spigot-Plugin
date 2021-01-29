@@ -11,8 +11,10 @@ public class ArmorStandArmsListener implements Listener {
     // Listens for when an Armor Stand is spawned and gives it arms.
     @EventHandler
     public void onSpawnArmorStand(EntitySpawnEvent event) {
-        if (EFSC.ARMOR_STAND_ARMS.isEnabled() && event.getEntity() instanceof ArmorStand) {
+
+        if (EFSC.ARMOR_STAND_ARMS.isEnabled() && event.getEntity() instanceof ArmorStand)
             ((ArmorStand)event.getEntity()).setArms(true);
-        }
+
     }
+
 }
